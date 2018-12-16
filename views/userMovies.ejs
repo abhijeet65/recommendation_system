@@ -1,0 +1,31 @@
+<form action = "/user/rateMovies" method = "post">
+    <table>
+        <thead>id, title, cast</thead>
+        <tbody>
+            <% for(var i = 0 ; i < movies.length; i++){%>
+                <tr movieID = "<%-movies[i]['id']%>" >
+                    <td>
+                        <img src = <%-'/images/' + movies[i]['imgSrc']%> width = "45" height = "67" > 
+                    </td>
+                    <td>
+                        <p><%-movies[i]['title']%></p>
+                    </td>
+                    <td>
+                        <p><%-movies[i]['cast']%></p>
+                    </td>
+                    <td>
+                        <div id = "ratingDiv" movieID = "<%-movies[i]['id']%>" >
+                                <input type="radio" name="<%-'rating_' + movies[i]['id']%>" value="1" > 1
+                                <input type="radio" name="<%-'rating_' + movies[i]['id']%>" value="2"> 2
+                                <input type="radio" name="<%-'rating_' + movies[i]['id']%>" value="3"> 3
+                                <input type="radio" name="<%-'rating_' + movies[i]['id']%>" value="4"> 4
+                                <input type="radio" name="<%-'rating_' + movies[i]['id']%>" value="5"> 5
+                                <input type = "radio" name = "<%-'rating_' + movies[i]['id']%>" value = "NA" checked = "checked"> NA
+                        </div>
+                    </td>
+                </tr>
+            <%}%>  
+        </tbody>  
+    </table>
+    <input type = "submit" />
+</form>
